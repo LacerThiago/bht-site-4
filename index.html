@@ -4,15 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BHTLabs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
+    .contato-social .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #fd5, #c837ab, #6f4fff);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 16px #a385ff33;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 1.08rem;
+      margin: 0;
+    }
+    .contato-social .insta-btn:hover {
+      background: linear-gradient(90deg, #6f4fff, #c837ab, #fd5);
+      transform: translateY(-2px) scale(1.04);
+      color: #fff;
+    }
+    .contato-social .insta-btn img {
+      margin-right: 8px;
+    }
+    .contato-social .email-btn {
+      background: linear-gradient(90deg, #6f4fff, #a385ff);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 16px #a385ff33;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 1.08rem;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contato-social .email-btn:hover {
+      background: linear-gradient(90deg, #a385ff, #6f4fff);
+      transform: translateY(-2px) scale(1.04);
+      color: #fff;
+    }
+    .contato-social .email-btn svg {
+      margin-right: 8px;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f7fb;
+      font-family: 'Inter', 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #f8f7fb 60%, #e7e3ff 100%);
       color: #3c3c3c;
       min-height: 100vh;
       display: flex;
@@ -23,7 +70,7 @@
       color: white;
       padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(111, 79, 255, 0.3);
+      box-shadow: 0 5px 20px rgba(111, 79, 255, 0.3), 0 0 40px #a385ff55 inset;
       animation: fadeInDown 0.8s ease forwards;
       user-select: none;
     }
@@ -100,6 +147,11 @@
       box-shadow: 0 14px 38px rgba(111, 79, 255, 0.18);
       transform: translateY(-4px);
     }
+    section h3, .intro h2 {
+      font-family: 'Montserrat', 'Inter', sans-serif;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 12px #a385ff22;
+    }
     section h3 {
       font-size: 2.2rem;
       margin-bottom: 18px;
@@ -144,6 +196,77 @@
       box-shadow: 0 22px 48px rgba(111, 79, 255, 0.45);
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+      justify-items: center;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(111, 79, 255, 0.18);
+      transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+      cursor: pointer;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+    .gallery img:hover {
+      filter: brightness(1.08) saturate(1.2);
+      transform: scale(1.06);
+      box-shadow: 0 16px 32px rgba(111, 79, 255, 0.28);
+    }
+
+    .social {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      color: #e8e6ffdd;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      gap: 8px;
+      transition: color 0.3s ease;
+      margin: 0;
+      justify-content: center;
+    }
+    .social a:hover {
+      color: #fff;
+    }
+    .social img {
+      width: 30px;
+      height: 30px;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.12));
+    }
+    .email-btn {
+      background: linear-gradient(90deg, #6f4fff, #a385ff);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 16px #a385ff33;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 1.08rem;
+      margin: 0;
+    }
+    .email-btn:hover {
+      background: linear-gradient(90deg, #a385ff, #6f4fff);
+      transform: translateY(-2px) scale(1.04);
+      color: #fff;
+    }
+    .email-btn svg {
+      margin-right: 8px;
+    }
+
     footer {
       background: linear-gradient(135deg, #6f4fff, #a385ff);
       color: #e8e6ffdd;
@@ -169,26 +292,62 @@
       letter-spacing: 0.03em;
       text-shadow: 0 1px 4px rgba(0,0,0,0.12);
     }
-    .social {
-      margin-top: 4px;
-    }
-    .social a {
-      display: inline-flex;
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
       align-items: center;
-      color: #e8e6ffdd;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      gap: 8px;
-      transition: color 0.3s ease;
+      justify-content: center;
+      background: none;
     }
-    .social a:hover {
+    .lightbox-bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(60, 60, 60, 0.55);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+    .lightbox img {
+      position: relative;
+      z-index: 2;
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(111, 79, 255, 0.35);
+      background: #fff;
+      padding: 8px;
+      animation: fadeInContent 0.4s;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 32px;
+      right: 48px;
+      z-index: 3;
+      font-size: 2.5rem;
       color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #333;
+      transition: color 0.2s;
     }
-    .social img {
-      width: 30px;
-      height: 30px;
-      filter: drop-shadow(0 0 2px rgba(0,0,0,0.12));
+    .lightbox-close:hover {
+      color: #a385ff;
+    }
+    @media (max-width: 600px) {
+      .lightbox-close {
+        top: 12px;
+        right: 18px;
+        font-size: 2rem;
+      }
+      .lightbox img {
+        max-width: 98vw;
+        max-height: 60vh;
+      }
     }
 
     @keyframes fadeInDown {
@@ -235,12 +394,546 @@
         font-size: 1rem;
       }
     }
+
+    /* DARK MODE */
+    body.dark {
+      background: linear-gradient(120deg, #232136 60%, #2a2342 100%);
+      color: #e8e6ff;
+    }
+    body.dark section {
+      background: #2a2342;
+      color: #e8e6ff;
+      box-shadow: 0 10px 30px rgba(111, 79, 255, 0.18);
+    }
+    body.dark header,
+    body.dark footer {
+      background: linear-gradient(135deg, #3d2c8d, #6f4fff);
+      color: #fff;
+    }
+    body.dark nav {
+      background: #3d2c8d;
+    }
+    body.dark .social a,
+    body.dark .social a:hover {
+      color: #fff;
+    }
+    body.dark .email-btn,
+    body.dark .contato-social .insta-btn {
+      box-shadow: 0 4px 16px #0002;
+    }
+    #config-panel {
+      animation: fadeInContent 0.3s;
+    }
+    #config-panel select, #config-panel input[type="checkbox"] {
+      accent-color: #6f4fff;
+    }
+
+    /* Config full screen */
+    #config-panel.fullscreen {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      min-width: unset;
+      min-height: unset;
+      background: rgba(40,32,80,0.98);
+      box-shadow: none;
+      z-index: 2000;
+      padding: 0;
+      animation: fadeIn 0.3s;
+    }
+    #config-panel.fullscreen h4 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 32px;
+    }
+    #config-panel.fullscreen label,
+    #config-panel.fullscreen select,
+    #config-panel.fullscreen input[type="checkbox"] {
+      font-size: 1.2rem;
+    }
+    #config-close {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2100;
+      transition: color 0.2s;
+    }
+    #config-close:hover {
+      color: #a385ff;
+    }
+
+    /* Botão de som */
+    #sound-btn {
+      position: fixed;
+      top: 22px;
+      right: 82px;
+      z-index: 1001;
+      background: #fff;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0 2px 8px #a385ff33;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    #sound-btn:hover {
+      background: #f3f0ff;
+    }
+    #sound-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: #6f4fff;
+    }
+    /* Painel de configurações moderno */
+#config-panel.fullscreen {
+  background: linear-gradient(135deg, #6f4fff 0%, #a385ff 100%);
+  color: #fff;
+  box-shadow: 0 0 0 100vmax #2a2342cc;
+  border-radius: 0;
+  padding: 0;
+  min-width: unset;
+  min-height: unset;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInContent 0.4s;
+}
+
+#config-panel.fullscreen h4 {
+  color: #fff;
+  font-size: 2.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+  text-shadow: 0 2px 16px #0003;
+}
+
+#config-panel.fullscreen label {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px 28px;
+  margin-bottom: 22px;
+  font-size: 1.25rem;
+  color: #fff;
+  box-shadow: 0 2px 12px #0001;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s;
+}
+
+#config-panel.fullscreen label:focus-within {
+  background: rgba(255,255,255,0.18);
+}
+
+#config-panel.fullscreen select,
+#config-panel.fullscreen input[type="checkbox"] {
+  accent-color: #fff;
+  border-radius: 8px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 1.1rem;
+  background: #fff;
+  color: #6f4fff;
+  box-shadow: 0 1px 4px #0001;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+#config-panel.fullscreen select:focus {
+  box-shadow: 0 0 0 2px #fff8, 0 1px 4px #0001;
+}
+
+#config-panel.fullscreen input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+}
+
+#config-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2100;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#config-close:hover {
+  background: rgba(255,255,255,0.13);
+  color: #fd5;
+}
+
+#config-panel.fullscreen {
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (max-width: 600px) {
+  #config-panel.fullscreen h4 {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+  #config-panel.fullscreen label {
+    font-size: 1rem;
+    padding: 12px 10px;
+    margin-bottom: 14px;
+  }
+  #config-close {
+    top: 12px;
+    right: 12px;
+    font-size: 2rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+#config-panel.fullscreen {
+  background: linear-gradient(135deg, #232136 0%, #2a2342 100%);
+  color: #e8e6ff;
+  box-shadow: 0 0 0 100vmax #232136e6;
+  border-radius: 0;
+  padding: 0;
+  min-width: unset;
+  min-height: unset;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInContent 0.4s;
+}
+
+#config-panel.fullscreen h4 {
+  color: #fff;
+  font-size: 2.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+  text-shadow: 0 2px 16px #0006;
+}
+
+#config-panel.fullscreen label {
+  background: rgba(60, 60, 80, 0.35);
+  border-radius: 14px;
+  padding: 18px 28px;
+  margin-bottom: 22px;
+  font-size: 1.25rem;
+  color: #e8e6ff;
+  box-shadow: 0 2px 12px #0002;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s;
+}
+
+#config-panel.fullscreen label:focus-within {
+  background: rgba(111, 79, 255, 0.18);
+}
+
+#config-panel.fullscreen select,
+#config-panel.fullscreen input[type="checkbox"] {
+  accent-color: #a385ff;
+  border-radius: 8px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 1.1rem;
+  background: #2a2342;
+  color: #a385ff;
+  box-shadow: 0 1px 4px #0002;
+  outline: none;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+#config-panel.fullscreen select:focus {
+  box-shadow: 0 0 0 2px #a385ff88, 0 1px 4px #0002;
+  background: #232136;
+}
+
+#config-panel.fullscreen input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  background: #232136;
+}
+
+#config-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2100;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#config-close:hover {
+  background: rgba(163, 133, 255, 0.13);
+  color: #fd5;
+}
+
+#config-panel.fullscreen {
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (max-width: 600px) {
+  #config-panel.fullscreen h4 {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+  #config-panel.fullscreen label {
+    font-size: 1rem;
+    padding: 12px 10px;
+    margin-bottom: 14px;
+  }
+  #config-close {
+    top: 12px;
+    right: 12px;
+    font-size: 2rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+#config-panel.fullscreen {
+  position: fixed;
+  overflow: hidden;
+}
+#config-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, #6f4fff33 0 200px, transparent 300px),
+              radial-gradient(circle at 80% 70%, #fd5a 0 180px, transparent 350px),
+              radial-gradient(circle at 60% 20%, #a385ff44 0 120px, transparent 300px),
+              linear-gradient(135deg, #232136 0%, #2a2342 100%);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.95;
+}
+#config-panel.fullscreen > *:not(#config-bg) {
+  position: relative;
+  z-index: 1;
+}
+#config-panel.fullscreen {
+  position: fixed;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+#config-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, #6f4fff33 0 200px, transparent 300px),
+    radial-gradient(circle at 80% 70%, #fd5a 0 180px, transparent 350px),
+    radial-gradient(circle at 60% 20%, #a385ff44 0 120px, transparent 300px),
+    linear-gradient(135deg, #232136 0%, #2a2342 100%);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.95;
+}
+
+#config-panel.fullscreen > *:not(#config-bg) {
+  position: relative;
+  z-index: 1;
+}
+#config-panel.fullscreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  background: transparent !important;
+  overflow: hidden;
+  padding: 0;
+}
+#config-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, #6f4fff33 0 200px, transparent 300px),
+    radial-gradient(circle at 80% 70%, #fd5a 0 180px, transparent 350px),
+    radial-gradient(circle at 60% 20%, #a385ff44 0 120px, transparent 300px),
+    linear-gradient(135deg, #232136 0%, #2a2342 100%);
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+}
+#config-panel.fullscreen > *:not(#config-bg) {
+  position: relative;
+  z-index: 1;
+}
+#config-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#config-close:hover {
+  background: rgba(163, 133, 255, 0.13);
+  color: #fd5;
+}
+#config-panel.fullscreen h4 {
+  color: #fff;
+  font-size: 2.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+  text-shadow: 0 4px 24px #6f4fff55, 0 2px 16px #0006;
+  text-align: center;
+}
+#config-panel.fullscreen label {
+  background: rgba(60, 60, 80, 0.35);
+  border-radius: 14px;
+  padding: 18px 28px;
+  margin-bottom: 22px;
+  font-size: 1.25rem;
+  color: #e8e6ff;
+  box-shadow: 0 2px 12px #0002;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s;
+}
+#config-panel.fullscreen label:focus-within {
+  background: rgba(111, 79, 255, 0.18);
+}
+#config-panel.fullscreen select,
+#config-panel.fullscreen input[type="checkbox"] {
+  accent-color: #a385ff;
+  border-radius: 8px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 1.1rem;
+  background: #2a2342;
+  color: #a385ff;
+  box-shadow: 0 1px 4px #0002;
+  outline: none;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+#config-panel.fullscreen select:focus {
+  box-shadow: 0 0 0 2px #a385ff88, 0 1px 4px #0002;
+  background: #232136;
+}
+#config-panel.fullscreen input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  background: #232136;
+}
+@media (max-width: 600px) {
+  #config-panel.fullscreen h4 {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+  #config-panel.fullscreen label {
+    font-size: 1rem;
+    padding: 12px 10px;
+    margin-bottom: 14px;
+  }
+  #config-close {
+    top: 12px;
+    right: 12px;
+    font-size: 2rem;
+    width: 38px;
+    height: 38px;
+  }
+}
   </style>
 </head>
+
 <body>
+  <!-- Botão de som -->
+  <button id="sound-btn" aria-label="Som">
+    <svg id="sound-icon" viewBox="0 0 24 24">
+      <path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/>
+    </svg>
+  </button>
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b5e0e1e2.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Botão de configurações -->
+  <button id="config-btn" aria-label="Configurações" style="position:fixed;top:22px;right:22px;z-index:1001;background:#fff;border-radius:50%;border:none;box-shadow:0 2px 8px #a385ff33;width:48px;height:48px;cursor:pointer;">
+    <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#6f4fff" d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7Zm7.43-2.06c.04-.31.07-.63.07-.94s-.03-.63-.07-.94l1.54-1.2a.5.5 0 0 0 .12-.64l-1.46-2.53a.5.5 0 0 0-.6-.23l-1.81.73a7.03 7.03 0 0 0-1.63-.94l-.27-1.93A.5.5 0 0 0 14 3h-2a.5.5 0 0 0-.5.42l-.27 1.93c-.6.24-1.17.56-1.7.94l-1.81-.73a.5.5 0 0 0-.6.23l-1.46 2.53a.5.5 0 0 0 .12.64l1.54 1.2c-.04.31-.07.63-.07.94s.03.63.07.94l-1.54 1.2a.5.5 0 0 0-.12.64l1.46 2.53a.5.5 0 0 0 .6.23l1.81-.73c.5.38 1.06.7 1.63.94l.27 1.93A.5.5 0 0 0 12 21h2a.5.5 0 0 0 .5-.42l.27-1.93c.6-.24 1.17-.56 1.7-.94l1.81.73a.5.5 0 0 0 .6-.23l1.46-2.53a.5.5 0 0 0-.12-.64l-1.54-1.2Z"/></svg>
+  </button>
+  <div id="config-bg"></div>
+  <div id="config-panel" style="display:none;">
+  <div id="config-bg"></div>
+  <button id="config-close" aria-label="Fechar">&times;</button>
+  <h4>Configurações</h4>
+  <label>
+    <input type="checkbox" id="darkmode-toggle" />
+    <span id="darkmode-label">Modo escuro</span>
+  </label>
+  <label>
+    <span id="lang-label">Idioma:</span>
+    <select id="lang-select">
+      <option value="pt">Português</option>
+      <option value="en">English</option>
+    </select>
+  </label>
+</div>
+
   <header>
-    <h1>BHTLabs</h1>
-    <p>Innovating with Art</p>
+    <h1 id="header-title">BHTLabs</h1>
+    <p id="header-desc">Innovating with Art</p>
   </header>
 
   <nav>
@@ -254,31 +947,47 @@
   <main role="tabpanel" tabindex="0">
     <section id="inicio" class="active" role="tabpanel" aria-label="Início">
       <div class="intro">
-        <h2>Welcome To BHTLabs</h2>
-        <p>Your partner to creative and clever solutions.</p>
+        <h2 id="intro-title">Welcome To BHTLabs</h2>
+        <p id="intro-desc">Your partner to creative and clever solutions.</p>
       </div>
     </section>
 
     <section id="sobre" role="tabpanel" aria-label="Sobre" tabindex="-1">
-      <h3>About us</h3>
-      <p>BHTLabs is dedicated to delivering innovation and quality in technology and design, helping brands grow and stand out..</p>
+      <h3 id="about-title">About us</h3>
+      <p id="about-desc">BHTLabs is dedicated to delivering innovation and quality in technology and design, helping brands grow and stand out..</p>
     </section>
 
     <section id="servicos" role="tabpanel" aria-label="Serviços" tabindex="-1">
-      <h3>What we do </h3>
-      <p>At BHTLabs, we are experts in <strong>graphic design</strong>. We offer creation services <strong>logos</strong>, <strong>flyers</strong>, business cards and more to make your brand stand out in the market.</p>
+      <h3 id="services-title">What we do </h3>
+      <p id="services-desc">At BHTLabs, we are experts in <strong>graphic design</strong>. We offer creation services <strong>logos</strong>, <strong>flyers</strong>, business cards and more to make your brand stand out in the market.</p>
     </section>
 
     <section id="exemplo" class="example" role="tabpanel" aria-label="Exemplo de projeto" tabindex="-1">
-      <h3>Example of a project</h3>
-      <img src="https://media.discordapp.net/attachments/724613506292252726/1378547547345522728/arte_cafe.png?ex=683cfff3&is=683bae73&hm=a1ce7b7fd50bfdd6f0ef48731b8409641241830cceaa49da2ab74b672cf4086b&=&format=webp&quality=lossless&width=755&height=944" alt="Exemplo de projeto gráfico BHTLabs" />
+      <h3 id="example-title">Example of a project</h3>
+      <div class="gallery">
+        <img src="https://media.discordapp.net/attachments/724613506292252726/1379249422755565589/5.png?ex=683f8d9f&is=683e3c1f&hm=3bd8cccecec377799b263ae51b58a3c4e8cb3e03d4676d69fe15a3f07ce673b5&=&format=webp&quality=lossless&width=584&height=827" alt="Exemplo de projeto 2" />
+        <img src="https://media.discordapp.net/attachments/724613506292252726/1379249423950807081/1.png?ex=683f8d9f&is=683e3c1f&hm=311a17f11ceb8a878d2b2f106f061f26b466aeda980c5504e871760e3b044974&=&format=webp&quality=lossless&width=584&height=827" alt="Exemplo de projeto 3" />
+        <img src="https://media.discordapp.net/attachments/724613506292252726/1379249424596996227/2.png?ex=683f8da0&is=683e3c20&hm=848e26e7e972d11166a96d30fd37fe81f5bc016ba09e1954764424ca57a56cc1&=&format=webp&quality=lossless&width=584&height=827" alt="Exemplo de projeto 4" />
+        <img src="https://media.discordapp.net/attachments/724613506292252726/1379249425213554810/3.png?ex=683f8da0&is=683e3c20&hm=1cdc5a4cc661a5ec82ea0e12e8acaa5b7177720b0d32db9ce298cdd68c11a951&=&format=webp&quality=lossless&width=584&height=827" alt="Exemplo de projeto 5" />
+        <img src="https://media.discordapp.net/attachments/724613506292252726/1379249425926459482/4.png?ex=683f8da0&is=683e3c20&hm=a306fc030ea539be66aa2965e8d7a5c0f9a66c38bbedc25e6b36bf529b8b8a6f&=&format=webp&quality=lossless&width=584&height=827" alt="Exemplo de projeto 6" />
+      </div>
     </section>
 
     <section id="contato" role="tabpanel" aria-label="Contato" tabindex="-1">
-      <h3>Contact</h3>
-      <p>Contact us via Instagram or the form below.</p>
-      <p><a href="https://www.instagram.com/bht_labs/" target="_blank" rel="noopener noreferrer">@bht_labs</a></p>
-      <p>E-mail: contatobhtlabs@gmail.com</p>
+      <h3 id="contact-title">Contact</h3>
+      <p id="contact-desc">Contact us via Instagram or the form below.</p>
+      <div class="social contato-social">
+        <a class="insta-btn" href="https://www.instagram.com/bht_labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram BHTLabs">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/038/447/961/small/ai-generated-instagram-logo-free-png.png" alt="Ícone Instagram" style="width:26px;height:26px;margin-right:8px;vertical-align:middle;" />
+          @bht_labs
+        </a>
+        <a class="email-btn" href="mailto:contatobhtlabs@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="E-mail BHTLabs">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;">
+            <path fill="#fff" d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.75-1.25a1.25 1.25 0 0 0-1.25 1.25v.637l8.25 5.5 8.25-5.5V6.75a1.25 1.25 0 0 0-1.25-1.25H4.75Zm15.25 3.363-7.6 5.067a.75.75 0 0 1-.85 0L3.25 8.863v8.387a1.25 1.25 0 0 0 1.25 1.25h14.5a1.25 1.25 0 0 0 1.25-1.25V8.863Z"/>
+          </svg>
+          contatobhtlabs@gmail.com
+        </a>
+      </div>
     </section>
   </main>
 
@@ -291,7 +1000,127 @@
     </div>
   </footer>
 
+  <div id="lightbox" class="lightbox" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
+    <div class="lightbox-bg"></div>
+    <img id="lightbox-img" src="" alt="Imagem ampliada" />
+    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+  </div>
+
   <script>
+    // Painel de configurações fullscreen
+    const configBtn = document.getElementById('config-btn');
+    const configPanel = document.getElementById('config-panel');
+    const configClose = document.getElementById('config-close');
+    configBtn.onclick = () => {
+      configPanel.classList.add('fullscreen');
+      configPanel.style.display = 'flex';
+      configClose.style.display = 'block';
+      setTimeout(() => configClose.focus(), 100);
+    };
+    configClose.onclick = () => {
+      configPanel.classList.remove('fullscreen');
+      configPanel.style.display = 'none';
+      configClose.style.display = 'none';
+    };
+    document.addEventListener('keydown', e => {
+      if (configPanel.classList.contains('fullscreen') && (e.key === 'Escape' || e.key === 'x')) {
+        configPanel.classList.remove('fullscreen');
+        configPanel.style.display = 'none';
+        configClose.style.display = 'none';
+      }
+    });
+
+    // Botão de som e música relaxante
+    const soundBtn = document.getElementById('sound-btn');
+    const soundIcon = document.getElementById('sound-icon');
+    const bgMusic = document.getElementById('bg-music');
+    let isMuted = true;
+    bgMusic.volume = 0.5;
+    bgMusic.muted = true;
+    soundBtn.onclick = () => {
+      isMuted = !isMuted;
+      bgMusic.muted = isMuted;
+      if (!isMuted) bgMusic.play();
+      soundIcon.innerHTML = isMuted
+        ? `<path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/>`
+        : `<path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/><line x1="4" y1="4" x2="20" y2="20" stroke="#6f4fff" stroke-width="2"/>`;
+    };
+
+    // Dark mode
+    const darkToggle = document.getElementById('darkmode-toggle');
+    if (localStorage.getItem('darkmode') === 'on') {
+      document.body.classList.add('dark');
+      darkToggle.checked = true;
+    }
+    darkToggle.onchange = () => {
+      document.body.classList.toggle('dark', darkToggle.checked);
+      localStorage.setItem('darkmode', darkToggle.checked ? 'on' : 'off');
+    };
+
+    // Tradução completa
+    const langSelect = document.getElementById('lang-select');
+    const translations = {
+      pt: {
+        nav: ['Início', 'Sobre', 'Serviços', 'Exemplo', 'Contato'],
+        headerTitle: 'BHTLabs',
+        headerDesc: 'Inovando com Arte',
+        introTitle: 'Bem-vindo ao BHTLabs',
+        introDesc: 'Seu parceiro para soluções criativas e inteligentes.',
+        aboutTitle: 'Sobre nós',
+        aboutDesc: 'A BHTLabs é dedicada a entregar inovação e qualidade em tecnologia e design, ajudando marcas a crescer e se destacar.',
+        servicesTitle: 'O que fazemos',
+        servicesDesc: 'Na BHTLabs, somos especialistas em <strong>design gráfico</strong>. Oferecemos criação de <strong>logos</strong>, <strong>flyers</strong>, cartões de visita e muito mais para destacar sua marca no mercado.',
+        exampleTitle: 'Exemplo de projeto',
+        contactTitle: 'Contato',
+        contactDesc: 'Fale conosco pelo Instagram ou pelo formulário abaixo.',
+        config: 'Configurações',
+        dark: 'Modo escuro',
+        lang: 'Idioma:'
+      },
+      en: {
+        nav: ['Home', 'About', 'Services', 'Example', 'Contact'],
+        headerTitle: 'BHTLabs',
+        headerDesc: 'Innovating with Art',
+        introTitle: 'Welcome To BHTLabs',
+        introDesc: 'Your partner to creative and clever solutions.',
+        aboutTitle: 'About us',
+        aboutDesc: 'BHTLabs is dedicated to delivering innovation and quality in technology and design, helping brands grow and stand out.',
+        servicesTitle: 'What we do',
+        servicesDesc: 'At BHTLabs, we are experts in <strong>graphic design</strong>. We offer creation services <strong>logos</strong>, <strong>flyers</strong>, business cards and more to make your brand stand out in the market.',
+        exampleTitle: 'Example of a project',
+        contactTitle: 'Contact',
+        contactDesc: 'Contact us via Instagram or the form below.',
+        config: 'Settings',
+        dark: 'Dark mode',
+        lang: 'Language:'
+      }
+    };
+    function setLang(lang) {
+      const t = translations[lang];
+      document.querySelectorAll('nav a').forEach((a, i) => a.textContent = t.nav[i]);
+      document.getElementById('header-title').textContent = t.headerTitle;
+      document.getElementById('header-desc').textContent = t.headerDesc;
+      document.getElementById('intro-title').textContent = t.introTitle;
+      document.getElementById('intro-desc').textContent = t.introDesc;
+      document.getElementById('about-title').textContent = t.aboutTitle;
+      document.getElementById('about-desc').innerHTML = t.aboutDesc;
+      document.getElementById('services-title').textContent = t.servicesTitle;
+      document.getElementById('services-desc').innerHTML = t.servicesDesc;
+      document.getElementById('example-title').textContent = t.exampleTitle;
+      document.getElementById('contact-title').textContent = t.contactTitle;
+      document.getElementById('contact-desc').textContent = t.contactDesc;
+      document.querySelector('#config-panel h4').textContent = t.config;
+      document.getElementById('darkmode-label').textContent = t.dark;
+      document.getElementById('lang-label').textContent = t.lang;
+      localStorage.setItem('lang', lang);
+    }
+    if (localStorage.getItem('lang')) {
+      langSelect.value = localStorage.getItem('lang');
+      setLang(langSelect.value);
+    }
+    langSelect.onchange = () => setLang(langSelect.value);
+
+    // Tabs e footer
     const tabs = document.querySelectorAll('.tab-link');
     const sections = document.querySelectorAll('main section');
     const footer = document.getElementById('footer');
@@ -342,6 +1171,31 @@
     document.addEventListener('scroll', toggleFooter);
     window.addEventListener('resize', toggleFooter);
     window.addEventListener('load', toggleFooter);
+
+    // Lightbox
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', function () {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = this.src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        lightbox.focus();
+      });
+    });
+
+    document.querySelector('.lightbox-close').onclick = closeLightbox;
+    document.querySelector('.lightbox-bg').onclick = closeLightbox;
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Fechar com ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
