@@ -894,20 +894,45 @@
     height: 38px;
   }
 }
+/* Animacao de zoom e fade para o lightbox */
+.lightbox[aria-hidden="false"] .lightbox-bg {
+  animation: lightboxFadeIn 0.4s cubic-bezier(.4,1.6,.4,1) both;
+}
+.lightbox[aria-hidden="false"] #lightbox-img {
+  animation: lightboxZoomIn 0.4s cubic-bezier(.4,1.6,.4,1) both;
+}
+.lightbox[aria-hidden="true"] .lightbox-bg {
+  animation: lightboxFadeOut 0.3s cubic-bezier(.4,1.6,.4,1) both;
+}
+.lightbox[aria-hidden="true"] #lightbox-img {
+  animation: lightboxZoomOut 0.3s cubic-bezier(.4,1.6,.4,1) both;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes lightboxFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes lightboxZoomIn {
+  from { opacity: 0; transform: scale(0.85);}
+  to   { opacity: 1; transform: scale(1);}
+}
+@keyframes lightboxZoomOut {
+  from { opacity: 1; transform: scale(1);}
+  to   { opacity: 0; transform: scale(0.85);}
+}
+.gallery img:active {
+  transform: scale(0.96);
+  filter: brightness(0.95);
+}
   </style>
 </head>
 
 <body>
-  <!-- Botão de som -->
-  <button id="sound-btn" aria-label="Som">
-    <svg id="sound-icon" viewBox="0 0 24 24">
-      <path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/>
-    </svg>
-  </button>
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b5e0e1e2.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
+
 
   <!-- Botão de configurações -->
   <button id="config-btn" aria-label="Configurações" style="position:fixed;top:22px;right:22px;z-index:1001;background:#fff;border-radius:50%;border:none;box-shadow:0 2px 8px #a385ff33;width:48px;height:48px;cursor:pointer;">
@@ -1030,21 +1055,6 @@
       }
     });
 
-    // Botão de som e música relaxante
-    const soundBtn = document.getElementById('sound-btn');
-    const soundIcon = document.getElementById('sound-icon');
-    const bgMusic = document.getElementById('bg-music');
-    let isMuted = true;
-    bgMusic.volume = 0.5;
-    bgMusic.muted = true;
-    soundBtn.onclick = () => {
-      isMuted = !isMuted;
-      bgMusic.muted = isMuted;
-      if (!isMuted) bgMusic.play();
-      soundIcon.innerHTML = isMuted
-        ? `<path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/>`
-        : `<path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.5 6.32v2.02c4.01-.91 7-4.49 7-8.34s-2.99-7.43-7-8.34v2.02c2.86.68 4.5 3.28 4.5 6.32z"/><line x1="4" y1="4" x2="20" y2="20" stroke="#6f4fff" stroke-width="2"/>`;
-    };
 
     // Dark mode
     const darkToggle = document.getElementById('darkmode-toggle');
@@ -1172,17 +1182,39 @@
     window.addEventListener('resize', toggleFooter);
     window.addEventListener('load', toggleFooter);
 
-    // Lightbox
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', function () {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = this.src;
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        lightbox.focus();
-      });
-    });
+    // Lightbox animado
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const galleryImgs = document.querySelectorAll('.gallery img');
+
+galleryImgs.forEach(img => {
+  img.addEventListener('click', function () {
+    lightboxImg.src = this.src;
+    lightbox.style.display = 'flex';
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightbox.focus();
+  });
+});
+
+function closeLightbox() {
+  // Animação de saída
+  lightbox.setAttribute('aria-hidden', 'true');
+  setTimeout(() => {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightboxImg.src = '';
+  }, 300); // tempo igual ao da animação
+}
+
+document.querySelector('.lightbox-close').onclick = closeLightbox;
+document.querySelector('.lightbox-bg').onclick = closeLightbox;
+
+// Fechar com ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && lightbox.style.display === 'flex') closeLightbox();
+});
 
     document.querySelector('.lightbox-close').onclick = closeLightbox;
     document.querySelector('.lightbox-bg').onclick = closeLightbox;
